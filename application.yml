@@ -1,0 +1,6 @@
+logging:
+  config: ${spring.cloud.config.uri:http://localhost:${server.port:8888}}/${spring.application.name}/${spring.profiles.active:default}/${spring.cloud.config.label:master}/logback-spring.xml
+  file: target/foo.log
+
+  pattern:
+    level: '%clr(%5p) %clr([${spring.application.name:},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}]){yellow}'
